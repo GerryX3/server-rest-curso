@@ -76,6 +76,7 @@ app.post('/google', async(req, res) => {
     let { token } = req.body;
 
     let googleUser = await verify(token).catch(e => {
+        console.log('error', e);
         return res.status(403).json({
             ok: false,
             err: e
